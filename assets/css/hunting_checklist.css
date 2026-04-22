@@ -2,18 +2,10 @@
 header {
   /* background: rgba(255, 255, 255, 0.26); */
 }
-
 body {
   background: #fcdfeb;
   position: relative;
 }
-
-footer {
-  width: 100%;
-  height: 200px;
-  background: #742209;
-}
-
 /* ----------checklist---------- */
 #checklist {
   font-family: "Ownglyph_2022_UWY_Si_Woo";
@@ -144,13 +136,15 @@ footer {
 
   opacity: 0;
   transition: 0.3s;
+  pointer-events: none;
 }
-
 .save_modal.show {
   opacity: 1;
+  pointer-events: auto;
 }
+
 /* ----------900---------- */
-@media (max-width: 900px) {
+@media (max-width: 930px) {
   .img_checklist {
     background: url(../img/hunting_checklist/checklist_mini.svg) no-repeat
       center 10px;
