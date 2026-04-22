@@ -67,7 +67,7 @@ body {
   overflow: hidden;
 
   background-image: url("../../img/menu_bar/menu_bar.svg");
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   background-position: top left;
   background-size: 100%;
 }
