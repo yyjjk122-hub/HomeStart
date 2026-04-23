@@ -103,8 +103,7 @@
     center / contain;
   z-index: 13;
   overflow: hidden;
-  /* transition :
-    transform 0.35s ease, filter 0.35s ease; */
+
   cursor: pointer;
 }
 
@@ -113,7 +112,7 @@
   font-family: "Ownglyph_2022_UWY_Si_Woo";
 
   position: absolute;
-  top: 100px;
+  top: 110px;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 11;
@@ -124,10 +123,33 @@
   white-space: nowrap;
   pointer-events: none;
 }
+/* 체크리스트 라인 */
+.checklist_overlay_text::before {
+  content: "";
+  position: absolute;
+  bottom: -45px;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  background-image: url(../img/moving/check_line.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+/* 체크리스트 별 */
+.checklist_overlay_text::after {
+  content: "";
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  height: 30px;
+  width: 100%;
+  background-image: url(../img/moving/check_star.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 
 /* 체크리스트 호버 */
 .img_checklist:hover {
-  /* transform: scale(1.08); */
   filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.25));
 }
 
@@ -155,7 +177,6 @@
   z-index: 11;
   transform-origin: center center;
   display: inline-block;
-  /* transition: filter 0.35s ease; */
 }
 /* 포토들 위치조정 */
 .pho1 {
@@ -235,7 +256,6 @@
   inset: 0;
   background: rgba(255, 255, 255, 0.5);
   opacity: 0;
-  /* transition: opacity 0.35s ease; */
   z-index: 10;
   pointer-events: none;
 }
@@ -247,9 +267,6 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  /* transition:
-    background-size 0.35s ease,
-    background-position 0.35s ease; */
 }
 
 .photo_overlay_text {
@@ -262,7 +279,6 @@
   transform: translate(-50%, -50%);
   z-index: 11;
   opacity: 0;
-  transition: opacity 0.35s ease;
   font-weight: 700;
   color: #000;
   white-space: nowrap;
@@ -510,7 +526,83 @@ body.modal-open {
     transform-origin: bottom center;
   }
 }
+@media (max-width: 768px) {
+  /* 포토들 위치조정 */
 
+  .img_checklist {
+    position: absolute;
+    top: 280px;
+    left: 78%;
+    transform: translateX(-50%);
+    scale: 1;
+    rotate: 2.5deg;
+  }
+  .img_checklist:hover {
+    position: absolute;
+    top: 280px;
+    left: 78%;
+    transform: translateX(-50%);
+    rotate: 2.5deg;
+  }
+
+  /* 1원룸이사 */
+  .pho1 {
+    position: absolute;
+    top: 200px;
+    left: 28%;
+  }
+  /* 2사다리차 비교 */
+  .pho2 {
+    position: absolute;
+    top: 420px;
+    left: 27%;
+
+    rotate: -20deg;
+  }
+  /* 3보관이사 */
+  .pho3 {
+    position: absolute;
+    top: 610px;
+    left: 75%;
+    rotate: 10deg;
+  }
+  /* 4손없는날 */
+  .pho4 {
+    position: absolute;
+    top: 750px;
+    left: 25%;
+
+    rotate: 0deg;
+  }
+  /* 5입주청소 체크리스트 */
+  .pho5 {
+    position: absolute;
+    top: 854px;
+    left: 75%;
+    rotate: 0deg;
+  }
+  /* 6포장반포장 */
+  .pho6 {
+    position: absolute;
+    top: 1020px;
+    left: 24%;
+
+    rotate: -10deg;
+  }
+  /* 7입주청소 총정리 */
+  .pho7 {
+    position: absolute;
+    top: 1150px;
+    left: 75%;
+    rotate: 12deg;
+  }
+  /* 8 셀프 입주청소 */
+  .pho8 {
+    position: absolute;
+    top: 1350px;
+    left: 50%;
+  }
+}
 @media (max-width: 480px) {
   .moving {
     min-height: 1550px; /* photo들이 아래로 이어질 만큼 크게 */

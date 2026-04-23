@@ -42,7 +42,9 @@
           <div class="photo pho2" data-popup="2">
             <div class="photo_bg_wh">
               <div class="photo_bg_gr"></div>
-              <div class="photo_overlay_text">사다리차 <br />엘레베이터 차이</div>
+              <div class="photo_overlay_text">
+                사다리차 <br />엘레베이터 차이
+              </div>
             </div>
           </div>
 
@@ -195,7 +197,9 @@
       // 조명들 움직임 흔들흔들
 
       window.addEventListener("load", function () {
-        const targets = document.querySelectorAll(".lighting_bg, .lighting, .lighting_follow");
+        const targets = document.querySelectorAll(
+          ".lighting_bg, .lighting, .lighting_follow",
+        );
 
         setTimeout(() => {
           targets.forEach((target) => {
@@ -261,7 +265,7 @@
           bgPosition: "center center",
           bgSize: "110%",
           hoverBgSize: "130%",
-          rotate: "10deg",
+          rotate: "18deg",
         },
 
         // 1920일 때 포토3 : 보관이사
@@ -412,7 +416,9 @@
         if (!contentBox) return;
 
         try {
-          const response = await fetch(`../page/moving_iframe${popupNumber}.html`);
+          const response = await fetch(
+            `../page/moving_iframe${popupNumber}.html`,
+          );
           const html = await response.text();
 
           contentBox.innerHTML = html;
@@ -431,7 +437,9 @@
           const popupNumber = item.dataset.popup;
           closeAllPopups();
 
-          const targetPopup = document.querySelector(`.photo_popup[data-content="${popupNumber}"]`);
+          const targetPopup = document.querySelector(
+            `.photo_popup[data-content="${popupNumber}"]`,
+          );
 
           if (!targetPopup) return;
 
@@ -450,57 +458,6 @@
       overlay.addEventListener("click", closeAllPopups);
     </script>
     <script>
-      // function initMovingIframe(targetPopup) {
-      //   const topBtn = targetPopup.querySelector(".top");
-      //   const scrollBox = targetPopup.querySelector(".iframe_scroll_content");
-
-      //   console.log("initMovingIframe 실행");
-      //   console.log("topBtn:", topBtn);
-      //   console.log("scrollBox:", scrollBox);
-
-      //   if (!topBtn || !scrollBox) return;
-
-      //   if (scrollBox.dataset.topInit === "done") return;
-      //   scrollBox.dataset.topInit = "done";
-
-      //   function toggleTopButton() {
-      //     if (scrollBox.scrollTop > 350) {
-      //       topBtn.classList.add("show");
-      //     } else {
-      //       topBtn.classList.remove("show");
-      //     }
-      //   }
-
-      //   scrollBox.addEventListener("scroll", toggleTopButton);
-
-      //   topBtn.addEventListener("click", () => {
-      //     scrollBox.scrollTo({
-      //       top: 0,
-      //       behavior: "smooth",
-      //     });
-      //   });
-
-      //   toggleTopButton();
-      // }
-
-      // async function loadPopupContent(popupNumber, targetPopup) {
-      //   const contentBox = targetPopup.querySelector(".popup_content");
-      //   if (!contentBox) return;
-
-      //   try {
-      //     const response = await fetch(
-      //       `../page/moving_iframe${popupNumber}.html`,
-      //     );
-      //     const html = await response.text();
-
-      //     contentBox.innerHTML = html;
-
-      //     initMovingIframe(targetPopup);
-      //   } catch (error) {
-      //     contentBox.innerHTML = `<p class="popup_error">콘텐츠를 불러오지 못했습니다.</p>`;
-      //     console.error(error);
-      //   }
-      // }
       function initMovingIframe(targetPopup) {
         const topBtn = targetPopup.querySelector(".top");
         const scrollBox = targetPopup.querySelector(".iframe_scroll_content");
