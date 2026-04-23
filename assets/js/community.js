@@ -150,3 +150,19 @@ menuLinks.forEach((link) => {
     filterPosts(filter);
   });
 });
+
+// 썸네일
+cards.forEach((card) => {
+  const img = card.dataset.img;
+  if (!img) return;
+
+  let thumb = card.querySelector(".thumb");
+
+  if (!thumb) {
+    thumb = document.createElement("div");
+    thumb.className = "thumb";
+    card.append(thumb);
+  }
+
+  thumb.style.backgroundImage = `url(${img})`;
+});
