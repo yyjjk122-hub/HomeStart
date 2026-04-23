@@ -111,14 +111,13 @@
 .checklist_overlay_text {
   font-family: "Ownglyph_2022_UWY_Si_Woo";
   position: absolute;
-  top: 110px;
-  left: 50%;
-  margin-left: 5px;
+  top: 95px;
+  left: 52%;
   transform: translate(-50%, -50%);
   z-index: 11;
   opacity: 1;
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 32px;
+
   color: #000;
   white-space: nowrap;
   pointer-events: none;
@@ -127,7 +126,7 @@
 .checklist_overlay_text::before {
   content: "";
   position: absolute;
-  bottom: -45px;
+  bottom: -39px;
   left: 0;
   height: 50px;
   width: 100%;
@@ -140,7 +139,7 @@
 .checklist_overlay_text::after {
   content: "";
   position: absolute;
-  bottom: 30px;
+  bottom: 36px;
   left: 0;
   height: 30px;
   width: 100%;
