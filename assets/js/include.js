@@ -109,9 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
     bbCursor.classList.add("show");
   });
 
-  const hoverTargets = document.querySelectorAll(
-    'a, button, [role="button"], input[type="button"], input[type="submit"], .hover-frame',
-  );
+  const hoverTargets = document.querySelectorAll('a, button, [role="button"], input[type="button"], input[type="submit"], .hover-frame');
 
   hoverTargets.forEach((target) => {
     target.addEventListener("mouseenter", () => {
