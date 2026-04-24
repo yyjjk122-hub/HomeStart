@@ -78,7 +78,6 @@
   opacity: 1;
   background: #ff7f7f;
   color: #fff;
-  transform: translateY(-1px);
 }
 /* 아이콘 */
 .write_options:hover svg {
@@ -168,7 +167,6 @@
 /* hover된 버튼만 강조 */
 .write_bottom button:hover {
   opacity: 1;
-  transform: translateY(-1px);
 }
 
 /* 팝업 */
@@ -266,7 +264,6 @@
 /* hover된 버튼만 강조 */
 .popup_btns button:hover {
   opacity: 1;
-  transform: translateY(-1px);
 }
 
 /* 미디어쿼리 */
