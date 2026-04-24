@@ -128,5 +128,30 @@ document.addEventListener("DOMContentLoaded", () => {
       bbCursor.classList.remove("is-down");
     });
   });
+
+  const mainHoverItems = [
+    { selector: ".pot img", text: "집꾸미기" },
+    { selector: ".box img", text: "이사/청소" },
+    { selector: ".laptop", text: "집구하기" },
+    { selector: ".window img", text: "커뮤니티" },
+  ];
+
+  const bbCursorText = bbCursor.querySelector(".bb-cursor-text");
+
+  mainHoverItems.forEach((item) => {
+    const target = document.querySelector(item.selector);
+
+    if (!target || !bbCursorText) return;
+
+    target.addEventListener("mouseenter", () => {
+      bbCursor.classList.add("hovering");
+      bbCursorText.textContent = item.text;
+    });
+
+    target.addEventListener("mouseleave", () => {
+      bbCursor.classList.remove("hovering");
+      bbCursorText.textContent = "";
+    });
+  });
 });
 // 커서 공통 생성 + 이동

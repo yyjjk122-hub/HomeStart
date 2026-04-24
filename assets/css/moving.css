@@ -99,8 +99,7 @@
   left: 400px;
   width: 206px;
   height: 288px;
-  background: url("../img/moving/moving_checklist.svg") no-repeat center
-    center / contain;
+  background: url("../img/moving/moving_checklist.svg") no-repeat center center / contain;
   z-index: 13;
   overflow: hidden;
 
@@ -297,11 +296,6 @@
 }
 
 /* 1920포토팝업 //////////////////////////////////////*/
-
-.photo,
-.img_checklist {
-  cursor: pointer;
-}
 
 .popup_overlay {
   position: fixed;
