@@ -86,13 +86,64 @@
   position: relative;
   overflow: hidden;
 }
+.shop_slider .shop_slider_box {
+  width: 100%;
+  max-width: none;
+}
 
 .shop_slider .swiper-wrapper {
   align-items: flex-start;
 }
 
-.shop_slider .swiper-slide {
-  width: auto;
+/*슬라이드 화살표 */
+.shop_slider .swiper-button-next,
+.shop_slider .swiper-button-prev {
+  width: 36px;
+  height: 36px;
+
+  color: rgba(77, 77, 77, 0.637);
+  top: 50%;
+  transform: translateY(-50%);
+}
+.shop_slider .swiper-button-next::after,
+.shop_slider .swiper-button-prev::after {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* 카테고리 */
+.shop_box_title {
+  max-width: 1060px;
+  margin: 100px auto 40px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.shop_box_title ul {
+  display: flex;
+  justify-content: flex-start;
+  gap: 24px;
+}
+.shop_box_title ul li a {
+  display: block;
+  padding: 10px;
+  position: relative;
+}
+.shop_box_title ul li a:hover {
+  font-weight: 800;
+}
+.shop_box_title ul li a.active {
+  font-weight: 800;
+}
+.shop_box_title ul li a.active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  transform: translateX(-50%);
+  width: 57px;
+  height: 3px;
+  background-color: #111;
+  border-radius: 999px;
 }
 
 /* 아이프레임 -서브페이지이동 */
@@ -113,13 +164,13 @@
 /* 카드 */
 .shop_slider_box {
   width: 100%;
-  max-width: 250px;
+  max-width: 200px;
   cursor: pointer;
 }
 
 .img_shop {
   width: 100%;
-  aspect-ratio: 25 / 24;
+  aspect-ratio: 1 / 1;
   height: auto;
   position: relative;
   overflow: hidden;
@@ -205,46 +256,6 @@
   color: #111;
 }
 
-/* 화살표 */
-.shop_slider .swiper-button-next,
-.shop_slider .swiper-button-prev {
-  width: 36px;
-  height: 36px;
-
-  color: rgba(77, 77, 77, 0.637);
-  top: 50%;
-  transform: translateY(-50%);
-}
-.shop_slider .swiper-button-next::after,
-.shop_slider .swiper-button-prev::after {
-  font-size: 14px;
-  font-weight: bold;
-}
-
-/* shop_box_title */
-.shop_box_title {
-  max-width: 1060px;
-  margin: 100px auto 40px;
-  font-size: 1.2rem;
-  font-weight: 500;
-}
-.shop_box_title ul {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-}
-
-.shop_box_title ul li a {
-  display: block;
-  padding: 10px;
-  position: relative;
-}
-.shop_box_title ul li a:hover {
-  font-weight: 800;
-}
-.shop_box_title ul li a.active {
-  font-weight: 800;
-}
 /* shop_box */
 .shop_box {
   max-width: 1200px;
@@ -259,6 +270,21 @@
 .shop_box .shop_slider_box {
   width: calc((100% - 26px * 3) / 4);
   max-width: 250px;
+}
+body.bg-all {
+  background-color: #fff;
+}
+
+body.bg-kit {
+  background-color: #ffe2971c;
+}
+
+body.bg-bed {
+  background-color: #d2aad021;
+}
+
+body.bg-bath {
+  background-color: #bee8f736;
 }
 
 /* more */
@@ -498,18 +524,6 @@
 
   .shop_box_title ul li a.active {
     font-weight: 800;
-  }
-
-  .shop_box_title ul li a.active::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -1px;
-    transform: translateX(-50%);
-    width: 72px;
-    height: 3px;
-    background-color: #111;
-    border-radius: 999px;
   }
 
   /* 3. 상품 리스트 → 2열 */

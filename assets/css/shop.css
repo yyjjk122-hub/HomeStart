@@ -59,6 +59,14 @@
 
 /* 미디어 쿼리 */
 /* 1. 태블릿 */
+@media (max-width: 1200px) {
+  .shop_item .cloud_1920 {
+    bottom: 100%;
+    left: 50%;
+    width: 200px;
+  }
+}
+
 @media (max-width: 1024px) {
   #shop {
     background: url(../img/shop/shop_bg_1024.svg) no-repeat center left / cover;
