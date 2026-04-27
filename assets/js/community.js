@@ -136,7 +136,11 @@ function filterPosts(category) {
   allCards.forEach((card) => {
     const cardCategory = card.dataset.category;
 
-    card.style.display = category === "all" || cardCategory === category ? "" : "none";
+    if (category === "all" || cardCategory === category) {
+      card.style.display = "";
+    } else {
+      card.style.display = "none";
+    }
   });
 }
 
@@ -147,35 +151,51 @@ function setActiveMenu(category) {
   });
 }
 
-// 카테고리클릭시 스크롤이벤트
+function moveToPostList(behavior = "auto") {
+  const mainBox = document.querySelector(".commu_box_main");
+
+  if (mainBox) {
+    mainBox.scrollIntoView({
+      behavior: behavior,
+      block: "start",
+    });
+  }
+}
+
+/* 메뉴 클릭 시 */
 menuLinks.forEach((link) => {
   link.addEventListener("click", function (e) {
     e.preventDefault();
 
     const filter = this.dataset.filter || "all";
-
     const url = filter === "all" ? "community.html" : `community.html?cat=${filter}`;
+
     history.pushState(null, "", url);
 
     filterPosts(filter);
     setActiveMenu(filter);
-
-    document.querySelector(".commu_box_main").scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+    moveToPostList("smooth");
   });
 });
 
+/* 뒤로가기 / 앞으로가기 */
 window.addEventListener("popstate", () => {
   const category = getCategoryFromUrl();
+
   filterPosts(category);
   setActiveMenu(category);
+  moveToPostList("auto");
 });
 
+/* 페이지 처음 들어왔을 때 */
 const currentCategory = getCategoryFromUrl();
+
 filterPosts(currentCategory);
 setActiveMenu(currentCategory);
+
+window.addEventListener("load", () => {
+  moveToPostList("auto");
+});
 
 /* =========================
    썸네일 생성

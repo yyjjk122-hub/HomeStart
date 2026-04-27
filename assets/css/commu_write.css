@@ -73,7 +73,6 @@
   background: #ffe3e3;
   color: #ff7f7f;
   font-size: 1.1rem;
-  cursor: pointer;
 
   display: flex;
   align-items: center;
@@ -93,7 +92,7 @@
 }
 /* 전체 hover 시 흐림 */
 .write_options:hover button {
-  opacity: 0.5;
+  opacity: 0.8;
 }
 /* hover된 버튼만 강조 */
 .write_options button:hover {
@@ -103,7 +102,7 @@
 }
 /* 아이콘 */
 .write_options:hover svg {
-  opacity: 0.5;
+  opacity: 0.8;
 }
 .write_options button:hover svg {
   opacity: 1;
@@ -163,7 +162,6 @@
   height: 40px;
   border-radius: 4px;
   font-size: 1.1rem;
-  cursor: pointer;
 }
 .btn_cancel {
   background: #fff;
@@ -227,7 +225,6 @@
   border: none;
   background: transparent;
   color: #fff;
-  cursor: pointer;
   font-size: 1.1rem;
 }
 
@@ -256,7 +253,6 @@
   border-radius: 6px;
   font-size: 1.1rem;
   font-weight: 500;
-  cursor: pointer;
 }
 
 .popup_cancel {
