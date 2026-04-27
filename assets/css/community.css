@@ -16,7 +16,6 @@ body {
   position: relative; /* 기준 */
   display: block; /* flex 제거 */
 }
-
 .search_bb {
   width: 118px;
   height: 118px;
@@ -798,4 +797,16 @@ body {
   .comment_count::before {
     transform: translateY(-50%);
   }
+}
+html,
+body,
+body *,
+.search_box,
+.search_box *,
+#search_input,
+#search_input:hover,
+#search_input:focus,
+.plane_icon,
+.plane_icon:hover {
+  cursor: none !important;
 }
