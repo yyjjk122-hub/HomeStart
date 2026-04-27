@@ -132,7 +132,11 @@ menuLinks.forEach((link) => {
 
     filterPosts(filter);
     setActiveMenu(filter);
-    moveToList("smooth");
+
+    // 전체게시글은 가만히, 나머지 카테고리만 이동
+    if (filter !== "all") {
+      moveToList("smooth");
+    }
   });
 });
 
@@ -144,7 +148,10 @@ window.addEventListener("popstate", () => {
 
   filterPosts(category);
   setActiveMenu(category);
-  moveToList("auto");
+
+  if (category !== "all") {
+    moveToList("auto");
+  }
 });
 
 /* =====================================================
@@ -206,6 +213,9 @@ const currentCategory = getCategoryFromUrl();
 filterPosts(currentCategory);
 setActiveMenu(currentCategory);
 
+// 게시글에서 카테고리 타고 들어온 경우만 목록으로 이동
 window.addEventListener("load", () => {
-  moveToList("auto");
+  if (currentCategory !== "all") {
+    moveToList("auto");
+  }
 });
