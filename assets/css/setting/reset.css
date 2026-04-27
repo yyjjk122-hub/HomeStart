@@ -247,6 +247,16 @@ img {
   .bb-cursor-text {
     font-size: 10px;
   }
+  .bb-cursor,
+  .bb-cursor-text,
+  .bb-cursor.is-hover,
+  .bb-cursor.is-down,
+  .bb-cursor.hovering {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
 }
 @media (max-width: 480px) {
   .bb-cursor {
@@ -262,14 +272,16 @@ img {
   }
 }
 @media (hover: none) {
-  .bb-cursor {
+  .bb-cursor,
+  .bb-cursor-text {
     display: none !important;
   }
 
   body,
   a,
   button,
-  img {
+  img,
+  * {
     cursor: auto !important;
   }
 }
