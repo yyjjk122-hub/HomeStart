@@ -120,6 +120,7 @@ body {
   position: relative;
   width: 80%;
   margin: 0 auto;
+  padding-bottom: 100px;
 }
 
 .shop_category {
@@ -129,7 +130,20 @@ body {
   font-size: 1.2rem;
   font-weight: 800;
   position: relative;
-  padding-left: 70px;
+}
+.shop_category_inner {
+  position: relative;
+  display: inline-block;
+}
+
+.shop_category_inner::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: #111;
 }
 
 /* 슬라이드*/
@@ -223,7 +237,7 @@ body {
   min-width: 63px;
   height: 22px;
   padding: 0 8px;
-  background: #f98ad9;
+  background: #ff8800;
   color: #fff;
   font-size: 12px;
   line-height: 22px;
@@ -259,7 +273,7 @@ body {
 .sale {
   font-size: 1rem;
   font-weight: 800;
-  color: #f98ad9;
+  color: #ff8800;
   margin-right: 4px;
 }
 
@@ -331,18 +345,73 @@ body {
   background-size: clamp(220px, 42vw, 700px);
 }
 
-/* Top button */
+.heart,
+.basket,
 .top {
   width: 50px;
   height: 50px;
   position: fixed;
   right: 3%;
-  bottom: 3%;
   opacity: 0;
+  pointer-events: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
   cursor: pointer;
+  transition:
+    opacity 0.3s ease,
+    transform 0.15s ease;
+  z-index: 999;
 }
+
+.heart {
+  bottom: 17%;
+  transition-delay: 0s;
+}
+
+.basket {
+  bottom: 10%;
+  transition-delay: 0.1s;
+}
+
+.top {
+  bottom: 3%;
+  transition-delay: 0.2s;
+}
+
+.heart.show,
+.basket.show,
 .top.show {
   opacity: 1;
+  pointer-events: auto;
+}
+.top.show {
+  transition-delay: 0s;
+}
+
+.basket.show {
+  transition-delay: 0.1s;
+}
+
+.heart.show {
+  transition-delay: 0.2s;
+}
+.heart img,
+.basket img,
+.top img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.heart:active,
+.basket:active,
+.top:active {
+  transform: scale(0.9);
+}
+.heart.clicked,
+.basket.clicked {
+  transform: scale(0.9);
 }
 
 /* 미디어 쿼리 */
@@ -354,41 +423,58 @@ body {
     overflow: hidden;
     background: url(../img/shop/shop_bg_1920.svg) no-repeat bottom / cover;
   }
-  .shop_wh {
-    width: 90%;
-    margin-top: -121px;
-    padding: 80px 30px;
-  }
   .shop_objects {
     margin-bottom: 0%;
+  }
+  .search_box {
+    width: 350px;
   }
 }
 @media (max-width: 1024px) {
+  .shop_kit,
+  .shop_bed,
+  .shop_bath {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+  }
   body {
     background: #a3c17e;
   }
-
+  .today_box {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    min-width: 63px;
+    height: 22px;
+    padding: 0 8px;
+    background: #719246;
+    color: #fff;
+    font-size: 12px;
+    line-height: 22px;
+    text-align: center;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  .sale {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #719246;
+    margin-right: 4px;
+  }
   .search_box {
     width: 300px;
   }
-  .shop_objects {
-    margin-bottom: 0%;
-  }
+
   #shop {
     background: url(../img/shop/shop_bg2_1024.svg) no-repeat center left / cover;
   }
-
-  .kitchen {
-    left: 5%;
-    bottom: 15%;
+  #shop_goods {
+    padding-bottom: 100px;
+    margin-top: -100px;
   }
-  .bedroom {
-    left: 35%;
-    bottom: 15%;
-  }
-  .bathroom {
-    left: 65%;
-    bottom: 15%;
+  .shop_objects {
+    margin-bottom: 10%;
   }
 
   .shop_slider,
@@ -440,7 +526,12 @@ body {
     background-size: 840px auto;
     background-position: bottom -2px center;
   }
-
+  .shop_category {
+    width: 100%;
+    margin: 0 0 20px;
+  }
+  .heart,
+  .basket,
   .top {
     width: 45px;
     height: 45px;
@@ -452,7 +543,9 @@ body {
     background: url(../img/shop/shop_bg2_1024.svg) no-repeat bottom / cover;
     height: 80vh;
   }
-
+  .shop_objects {
+    margin-bottom: 17%;
+  }
   .search_box {
     width: 250px;
   }
@@ -500,18 +593,31 @@ body {
     background-size: 700px auto;
     background-position: bottom -2px;
   }
+  .heart,
+  .basket,
   .top {
     height: 40px;
     width: 40px;
   }
+  .heart {
+    bottom: 15%;
+  }
+
+  .basket {
+    bottom: 9%;
+  }
+
+  .top {
+    bottom: 3%;
+  }
 }
 @media (max-width: 680px) {
   #shop_goods {
-    width: 80%;
-    margin: 0 10% 10% 10%;
+    padding-bottom: 100px;
+    margin-top: -150px;
   }
   .shop_objects {
-    margin-top: -100%;
+    margin-bottom: 25%;
   }
   .shop_slider,
   .shop_slider_title,

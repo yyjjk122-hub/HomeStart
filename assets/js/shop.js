@@ -103,25 +103,73 @@ const categoryLinks = document.querySelectorAll(".shop_box_title a");
 const topBtn = document.querySelector(".top");
 
 // =========================
-// 6) 탑버튼
+// 버튼 3개(하트, 장바구니, 탑)
 // =========================
-if (topBtn) {
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 350) {
-      topBtn.classList.add("show");
-    } else {
-      topBtn.classList.remove("show");
-    }
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  const topBtn = document.querySelector(".top");
+  const heartBtn = document.querySelector(".heart");
+  const basketBtn = document.querySelector(".basket");
 
-  topBtn.addEventListener("click", () => {
+  const fixedBtns = [topBtn, heartBtn, basketBtn];
+
+  function toggleFixedBtns() {
+    fixedBtns.forEach((btn) => {
+      if (!btn) return;
+
+      if (window.scrollY > 350) {
+        btn.classList.add("show");
+      } else {
+        btn.classList.remove("show");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", toggleFixedBtns);
+  toggleFixedBtns();
+
+  topBtn?.addEventListener("click", () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   });
+
+  heartBtn?.addEventListener("click", () => {
+    heartBtn.classList.add("clicked");
+
+    setTimeout(() => {
+      heartBtn.classList.remove("clicked");
+    }, 150);
+  });
+
+  basketBtn?.addEventListener("click", () => {
+    basketBtn.classList.add("clicked");
+
+    setTimeout(() => {
+      basketBtn.classList.remove("clicked");
+    }, 150);
+  });
+});
+function changeFloatingBtnImages() {
+  const isTablet = window.innerWidth <= 1024;
+
+  const heartImg = document.querySelector(".heart img");
+  const basketImg = document.querySelector(".basket img");
+  const topImg = document.querySelector(".top img");
+
+  if (isTablet) {
+    heartImg.src = "../assets/img/shop/green_heart.png";
+    basketImg.src = "../assets/img/shop/green_basket.png";
+    topImg.src = "../assets/img/shop/green_top_button.png";
+  } else {
+    heartImg.src = "../assets/img/shop/orange_heart.svg";
+    basketImg.src = "../assets/img/shop/orange_basket.svg";
+    topImg.src = "../assets/img/shop/top_button.png";
+  }
 }
 
+changeFloatingBtnImages();
+window.addEventListener("resize", changeFloatingBtnImages);
 //스크롤이벤트
 const sections = [
   {
