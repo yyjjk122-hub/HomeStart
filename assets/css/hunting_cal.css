@@ -133,10 +133,7 @@
   background-image: url(../img/hunting_cal/cal_box_btn_hover.svg);
   background-repeat: no-repeat;
 }
-/* vv아파트/오피스텔/매매/전세 버튼들 호버vv */
-.btn:hover {
-  cursor: pointer;
-}
+
 /* 계산하려는 돈 단위 입력 인풋창 */
 input.money_box_input,
 input.money_box_input_monthly {
@@ -246,8 +243,9 @@ p .nonenone {
 @media (max-width: 1024px) {
   .cal,
   .result_page {
-    width: 748px;
+    max-width: 748px;
     height: 486px;
+    width: 94%;
   }
   .result_notes {
     width: 240px;
@@ -296,7 +294,7 @@ p .nonenone {
 @media (max-width: 768px) {
   .cal,
   .result_page {
-    width: 98%;
+    width: 94%;
     height: 486px;
   }
   .cal_x a img,
@@ -306,7 +304,19 @@ p .nonenone {
 }
 
 @media (max-width: 480px) {
+  #hunting_cal {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: visible;
+    padding: 80px 0 14px 0;
+    box-sizing: border-box;
+  }
+  .hunting_cal {
+    position: relative;
+  }
+
   .cal_title {
+    font-size: 40px;
     margin-bottom: 8px;
   }
   .result_title {
@@ -315,17 +325,32 @@ p .nonenone {
 
   .cal,
   .result_page {
-    width: 95%;
-    height: 80%;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+
+    width: 92%;
+    height: 600px;
+    margin: 0 auto;
   }
+  /* 물건유형 박스 거래유형 박스 부모 */
   .cal_boxes {
     display: flex;
   }
 
+  /* 물건유형 거래유형 */
+  .cal_boxes h2 {
+    margin-left: 24px;
+    font-size: 26px;
+  }
+
+  /* 물건유형 박스, 거래유형 박스 */
   .cal_box1,
   .cal_box2 {
     display: flex;
     flex-direction: column;
+    margin: 0 0 0 0;
   }
 
   .cal_box1 li,
@@ -344,23 +369,24 @@ p .nonenone {
     border-radius: 10px;
   }
 
+  /* vv거래금액vv */
   .deal_money {
     position: relative;
-    right: 108px;
-    padding-top: 15px;
+    right: 118px;
+    font-size: 26px;
+    margin-top: 12px;
+  }
+  .input_box ::placeholder {
+    font-size: 26px;
   }
 
-  .cal_boxes h2 {
-    margin-left: 24px;
-    padding-top: 20px;
-  }
-
+  /* 계산버튼 */
   .cal_btn {
-    margin: 15px 0 30px 0;
+    margin-top: 10px;
   }
-
+  /* 다시계산하기 버튼 */
   .result_close_btn {
-    margin: 40px 0 30px 0;
+    margin: 30px 0 28px 0;
   }
   .cal_x a img,
   .result_cal_x img {
@@ -370,6 +396,17 @@ p .nonenone {
   }
   .cal_x_box,
   .result_blue {
-    flex: 40;
+    flex: none;
+  }
+
+  .cal_whiteboard,
+  .result_whiteboard {
+    width: 100%;
+    flex: none;
+    min-height: 530px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
